@@ -44,25 +44,32 @@ public class ComboBoxExperiments extends Application  {
         comboBox.getItems().add("Choice 2");
         comboBox.getItems().add("Choice 3");
 
+
         String sWatermark = "Test me";
 
         EventHandler<ActionEvent> evtChangeFont =
                 new EventHandler<ActionEvent>() {
+
                     public void handle(ActionEvent e) {
-                        if (comboBox.equals("Choice 1")) {
+
+                        Object selectedItem = comboBox.getSelectionModel().getSelectedItem();
+
+//                        System.out.println(selectedItem);
+
+                        if (selectedItem.equals("Choice 1")) {
                             Font f = new Font(FontFamily.HELVETICA, 18);
                             Phrase p = new Phrase(sWatermark, f);
-                            System.out.println(p);
+                            System.out.println(f.getFamily().toString());
 
-                        } else if (comboBox.equals("Choice 2")) {
+                        } else if (selectedItem.equals("Choice 2")) {
                             Font f = new Font(FontFamily.TIMES_ROMAN, 18);
                             Phrase p = new Phrase(sWatermark, f);
-                            System.out.println(p);
+                            System.out.println(f.getFamily().toString());
 
-                        } else if (comboBox.equals("Choice 3")) {
+                        } else if (selectedItem.equals("Choice 3")) {
                             Font f = new Font(FontFamily.COURIER, 18);
                             Phrase p = new Phrase(sWatermark, f);
-                            System.out.println(p);
+                            System.out.println(f.getFamily().toString());
                         }
                     }
                 };
